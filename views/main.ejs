@@ -1,0 +1,259 @@
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background:url(./images/bg.jpg) repeat-x,url(./images/bg_2.png)repeat-x 0 137px;
+			background-color:#C6EACE; 
+			/*color:#FEFEFE;*/
+
+		}
+		.header{
+			width: 960px;
+			height:150px;
+			margin:60px auto;
+		}
+		h3{
+			color:#72A56A;
+			text-align: center;
+		}
+		img.pic{
+			float: left;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+		}
+		div.pic{
+			width: 960px;
+			height: 100px;
+			text-align: center;
+
+		}
+		div.pic span{
+
+			float: left;
+			line-height:100px; 
+			height: 100px;
+			width: 100px;
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px
+		}
+		a{
+			text-decoration: none;
+			color:#A6A6A6;
+		}
+		a.exit{
+			float: right;
+			height: 30px;
+			line-height: 30px;
+			
+			font-size: 16px;
+			color:#EAF7ED;
+			width: 100px;
+			/*border:1px solid #aaa;*/
+			background:#295230 ;
+			border-radius: 3px;
+			margin-top: 40px;
+
+		}
+		div.container{
+			width: 1300px;
+			height: 600px;
+			background: #121212;
+			margin:0 auto;
+			padding-bottom: 50px;
+		}
+		div.nav{
+			width: 1100px;
+			height: 65px;
+			margin:0 auto;
+			border-bottom: 3px solid #080808;	
+		}
+		ul{
+			list-style: none;
+			width: 900px;
+		}
+		ul.clear li{
+			float: left;
+			width: 100px;
+			height: 65px;
+			text-align: center;
+			line-height: 65px;
+		}
+		div.manage{
+			width: 100%;
+			
+		}
+		div.manage ul{
+			
+			width: 1100px;
+			height: 500px;
+			margin:50px auto;
+			overflow: hidden;
+		}
+		div.manage ul li{
+			width: 33%;
+			height: 100%;
+			float: left;
+			box-sizing:border-box;
+			padding-left:;
+			border-right:1px solid #fff;
+		}
+		div.manage ul li:first-child{
+			border-left:1px solid #fff;
+		}
+		p.creat{
+			width: 280px;
+			height: 35px;
+			background: #fff;
+			margin:30px auto;
+		}
+		#album_name{
+			width: 180px;
+			height: 30px;
+			background: #fff;
+			outline: none;
+			border:none;
+			color:#fff;
+		}
+		
+		#btn{
+			width: 95px;
+			height: 35px;
+			background: #262626;
+			border:none;
+			color:#919191;
+			cursor:pointer;
+			font-weight: bold;
+		}
+		#btn:hover{
+			background: #808080;
+			color:#FEFEFE;
+		}
+		li.show{
+			text-align: center;
+		}
+		#select{
+			width: 200px;
+			height: 40px;
+			margin-top:30px ;
+		}
+		p.choose,p.choose1{
+			width: 280px;
+			height: 35px;
+			/*background: #fff;*/
+			margin:30px auto;
+		}
+		p.choose span{
+			display: inline-block;
+			width: 95px;
+			height: 35px;
+			/*background: #262626;*/
+		}
+		#select1{
+			width: 180px;
+			height: 35px;
+			border:none;
+		}
+		#btn1{
+			width: 95px;
+			height: 35px;
+			background: #262626;
+			border:none;
+			color:#919191;
+			cursor:pointer;
+			font-weight: bold;
+		}
+		#upload{
+			width: 180px;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h3>欢迎来到相册管理系统</h3>
+		<div class="pic"><img src=<%=head_pic%> alt="" class="pic"><span class="username"><%=username%></span><a href="/exit" class="exit">点击退出</a></div>
+	</div>
+	<div class="container">
+		<div class="nav">
+			<ul class="clear">
+				<li><a href="/all_albums">全部相册</a></li>
+				<li><a href="/show_user_albums?username=<%=username%>">我的相册</a></li>
+				<li><a href="/manage">管理相册</a></li>
+			</ul>
+		</div>
+		<!-- <div class="manage">
+			<ul>
+				<li class="creat">
+					<h3>创建相册</h3>
+					<p class="creat">
+						<input type="text" id="album_name" placeholder=" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;输入相册名称">
+						<input type="button" id="btn"value="点击创建">
+					</p>
+					
+				</li>
+				<li class="show">
+					<h3>所有相册</h3>
+					<select  id="select">
+						<option value="">我的相册</option>
+						
+					</select>
+					<ul>
+						
+
+					</ul>
+				</li>
+				<li class="upload">
+					<h3>上传图片</h3>
+					<form action="/uploads" method="post" ectype="multipart/form-data">
+						<p class="choose">
+							<span>选择相册</span>
+							<select  name="album_name" id="select1">
+								<option value="">我的相册</option>
+								<option value="">我的相册1</option>
+							</select>
+						</p>
+						
+							<p class="choose1">
+								<input type="file"name="upload" id="upload">
+								<input type="submit" value = "点击上传" id="btn1">
+							</p>
+							
+					</form>
+
+				</li>
+			</ul>
+		</div> -->
+	</div>
+	<!--<script src="./js/jquery-1.7.2.js"></script>
+	<script>
+		var album_name = $("album_name");
+		var btn = $("btn");
+		btn.click(function(){
+			$.ajax({
+				url:"/creat_album",
+				type:"get",
+				data:{
+					album_name:album_name.val()
+				},
+				dataType:"json",
+				success:function(data){
+					var option = "<option value="+album_name.val()+">"+album_name+"</option>";
+					$("select").each(function(){
+						this.innerHTML+=option
+					})
+				}
+			})
+		})
+	</script>  -->
+	
+</body>
+</html>

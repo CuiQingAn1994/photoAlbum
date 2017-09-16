@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background: #F8F8F8;
+
+		}
+		div.header{
+			width: 960px;
+			height: 100px;
+			margin:0 auto;
+			font-size: 40px;
+			line-height: 100px;
+			font-style: italic;
+		}
+		div.header span.login{
+			font-size: 20px;
+			font-style: normal;
+		}
+		div.con{
+			box-sizing:border-box;
+			width: 960px;
+			height: 660px;
+			border:2px solid #DDDDDD;
+			border-top: 6px solid #FF9900;
+			margin:0 auto;
+			background: #fff;
+			padding-top:80px;
+		}
+
+		p{
+			width: 400px;
+			height: 40px;
+			margin:30px auto;
+			border:2px solid #ccc;
+		}
+		span{
+			display: inline-block;
+			width: 100px;
+			/*height: 38px;*/
+			line-height: 40px;
+			text-align: center;
+		}
+
+		input{
+			border:0px solid #fff;
+			outline: none;
+			width: 100px;
+			height: 36px;
+		}
+		#btn{
+			width: 400px;
+			height: 40px;
+			background: #FF6600;
+			font-size: 20px;
+			color:#FFFAF7;
+			cursor: pointer;
+		}
+		a{
+			text-decoration: none;
+			display: block;
+			padding-left: 280px;
+			color:#FF8534;
+		}
+		#head_pic{
+			width: 200px;
+			height: 40px;
+			/*font-size: 20px;*/
+			border:none;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">欢迎来到在线相册系统<span class="login">欢迎注册</span></div>
+	<div class="con">
+		<form action="/regist" method="post" enctype="multipart/form-data">
+			<p class="user"><span>用户名</span><input type="text" placeholder="请输入用户名" name="username" id="username"><span class="tips"></span></p>
+			<p><span>密码</span><input type="password" placeholder="请输入密码" name="password"></p>
+			<p><span>确认密码</span><input type="password" placeholder="确认密码" ></p>
+			<p><span>选择头像</span><input type="file" id="head_pic" name="head_pic"></p>
+			<p><input type="submit" id="btn" value="提交登录"></p>
+		</form>	
+		<a href="/">注册完毕?马上登录</a> 
+	</div>
+	
+<script src="./js/jquery-1.7.2.js"></script>
+<script>
+	window.onload=function(){
+		var username=$("#username");
+		username.blur(function(){
+			if(!$(this).val()){
+				console.log("不能为空");
+			return;
+			}
+			$.ajax({
+				url:"/checkusername",
+				type:"get",
+				data:{"username":$(this).val()},
+				dataType:"json",
+				success:function(data){
+					if(!data.error){
+					console.log(data)
+						$(".tips").html(data.data).css("color","green");
+					}
+				}
+			})
+		})
+	}
+</script>
+</body>
+</html>

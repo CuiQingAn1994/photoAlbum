@@ -1,0 +1,129 @@
+          <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			background:url(./images/bg.jpg) repeat-x,url(./images/bg_2.png)repeat-x 0 137px;
+			background-color:#C6EACE; 
+			/*color:#FEFEFE;*/
+
+		}
+		.header{
+			width: 960px;
+			height:150px;
+			margin:60px auto;
+		}
+		h3{
+			color:#72A56A;
+			text-align: center;
+		}
+		img.pic{
+			float: left;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+		}
+		div.pic{
+			width: 960px;
+			height: 100px;
+			text-align: center;
+
+		}
+		div.pic span{
+
+			float: left;
+			line-height:100px; 
+			height: 100px;
+			width: 100px;
+			text-align: center;
+			font-weight: bold;
+			font-size: 20px
+		}
+		a{
+			text-decoration: none;
+			color:#A6A6A6;
+		}
+		a.exit{
+			float: right;
+			height: 30px;
+			line-height: 30px;
+			
+			font-size: 16px;
+			color:#EAF7ED;
+			width: 100px;
+			/*border:1px solid #aaa;*/
+			background:#295230 ;
+			border-radius: 3px;
+			margin-top: 40px;
+
+		}
+		div.container{
+			width: 1300px;
+			height: 1200px;
+			background: #121212;
+			margin:0 auto;
+			padding-bottom: 50px;
+		}
+		div.nav{
+			width: 1100px;
+			height: 65px;
+			margin:0 auto;
+			border-bottom: 3px solid #080808;	
+		}
+		#my_pic{
+			width: 1100px;
+			margin: 0 auto;
+
+		}
+		#my_pic .list{
+			width: 1100px;
+			height: 600px;
+			overflow: auto;
+		}
+		ul{
+			list-style: none;
+			width: 900px;
+		}
+		ul.clear li{
+			float: left;
+			width: 100px;
+			height: 65px;
+			text-align: center;
+			line-height: 65px;
+
+
+		}
+	
+
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h3>欢迎来到相册管理系统</h3>
+		<div class="pic"><img src=<%=head_pic%> alt="" class="pic"><span class="username"><%=username%></span><a href="/exit" class="exit">点击退出</a></div>
+	</div>
+	<div class="container">
+		<div class="nav">
+			<ul class="clear">
+				<li><a href="/all_albums">全部相册</a></li>
+				<li><a href="/show_user_albums?username=<%=username%>">我的相册</a></li>
+				<li><a href="/manage">管理相册</a></li>
+			</ul>
+		</div>
+		<div id="my_pic">
+			<ul class = "list">
+				<%for(var i=0;i<data.length;i++){%>
+				<li style="line-height:230px;margin-top:30px;text-align:center;float:left;margin-right:30px;width:100px;height:100px;background-image:url(./<%=person%>/<%=album_name%>/<%=data[i]%>);background-size:cover;"><a href="./<%=person%>/<%=album_name%>/<%=data[i]%>" style="width:100%;height:100%;display:block"></a></li>
+				<%}%>
+			</ul>
+		</div>
+	</div>
+	
+</body>
+</html>
